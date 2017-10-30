@@ -1,7 +1,7 @@
 
-NAME = contact
+NAME = contactBook
 CFLAGS = -Wall -Wextra -Werror
-SRC = megaphone.cpp
+SRC = main.cpp Contact.class.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

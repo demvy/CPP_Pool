@@ -3,7 +3,7 @@ NAME = ex02
 CFLAGS = -Wall -Wextra -Werror
 SRC = main.cpp
 
-OBJ = $(SRC:.c=.o)
+OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
