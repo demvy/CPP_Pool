@@ -10,9 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = contactBook
+NAME = ex01
 CFLAGS = -Wall -Wextra -Werror
-SRC = main.cpp Contact.class.cpp
+SRC = ex01.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

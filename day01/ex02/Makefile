@@ -10,10 +10,10 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = contactBook
+NAME = Zombie_party
 CFLAGS = -Wall -Wextra -Werror
-SRC = main.cpp Contact.class.cpp
-
+SRC = main.cpp Zombie.cpp ZombieEvent.cpp
+ 
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)

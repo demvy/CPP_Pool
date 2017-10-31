@@ -10,10 +10,10 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = contactBook
+NAME = ZombieChorde
 CFLAGS = -Wall -Wextra -Werror
-SRC = main.cpp Contact.class.cpp
-
+SRC = main.cpp Zombie.cpp ZombieChorde.cpp
+ 
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)

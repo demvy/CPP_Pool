@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Contact.class.cpp                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vdemeshk <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/10/31 13:04:09 by vdemeshk          #+#    #+#             */
+/*   Updated: 2017/10/31 13:04:21 by vdemeshk         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "Contact.class.hpp"
 
@@ -73,3 +84,4 @@ void Contact::printContact(void)
 	std::cout<<"    underwear color: "<<underwearColor<<std::endl;
 	std::cout<<"    darkest secret: "<<darkSecret<<std::endl;
 }
+
