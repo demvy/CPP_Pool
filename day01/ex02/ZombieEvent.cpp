@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ZombieEvent.cpp                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vdemeshk <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/11/01 17:19:44 by vdemeshk          #+#    #+#             */
+/*   Updated: 2017/11/01 17:19:49 by vdemeshk         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ZombieEvent.hpp"
 
@@ -20,3 +31,4 @@ Zombie* ZombieEvent::newZombie(std::string name){
 	setZombieType(zombie);
 	return (zombie);
 }
+
