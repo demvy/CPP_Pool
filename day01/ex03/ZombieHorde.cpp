@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ZombieChorde.cpp                                   :+:      :+:    :+:   */
+/*   ZombieHorde.cpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vdemeshk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ZombieChorde.hpp"
+#include "ZombieHorde.hpp"
 
-ZombieChorde::ZombieChorde(int n) {
+ZombieHorde::ZombieHorde(int n) {
 	std::string names[] = {"Jora", "Gena", "Inokentiy", "Afanasiy", "Matvey"};
 
 	srand(time(0));
@@ -24,15 +24,18 @@ ZombieChorde::ZombieChorde(int n) {
 			chorde[i].setName(names[rand() % 5]);
 	}
 	else
+	{
+		chorde = new Zombie[0];
+		size = 0;
 		std::cout<<"Number have to be greater than 0"<<std::endl;
+	}
 }
 
-ZombieChorde::~ZombieChorde() {
+ZombieHorde::~ZombieHorde() {
 	delete [] chorde;
 }
 
-void ZombieChorde::announce() const {
+void ZombieHorde::announce() const {
 	for (int i = 0; i < size; i++)
 		chorde[i].announce();
 }
-

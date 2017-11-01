@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ZombieHorde.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vdemeshk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/01 17:22:11 by vdemeshk          #+#    #+#             */
-/*   Updated: 2017/11/01 17:22:16 by vdemeshk         ###   ########.fr       */
+/*   Created: 2017/11/01 17:21:54 by vdemeshk          #+#    #+#             */
+/*   Updated: 2017/11/01 17:22:02 by vdemeshk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ZombieHorde.hpp"
-#include "Zombie.hpp"
+#ifndef ZOMBIE_HORDE_H
+# define ZOMBIE_HORDE_H
 
-int		main(void)
-{
-	ZombieHorde* chorde = new ZombieHorde(10);
+# include <iostream>
+# include <string>
+# include <ctime>
+# include "Zombie.hpp"
 
-	srand(time(0));
-	chorde->announce();
-	delete chorde;
-	return (0);
-}
+class ZombieHorde {
+	private:
+		Zombie	*chorde;
+		int		size;
+	public:
+		ZombieHorde(int n);
+		~ZombieHorde(void);
+		void announce() const;
+};
 
+#endif

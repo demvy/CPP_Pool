@@ -10,9 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ZombieHorde
+NAME = ex00
 CFLAGS = -Wall -Wextra -Werror
-SRC = main.cpp Zombie.cpp ZombieHorde.cpp
+SRC = main.cpp Fixed.class.cpp
  
 OBJ = $(SRC:.cpp=.o)
 
