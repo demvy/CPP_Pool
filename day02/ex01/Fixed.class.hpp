@@ -9,7 +9,7 @@
 class Fixed {
 	private:
 		int	_point;
-		static const int len = 8;
+		static const int _len = 8;
 	public:
 		Fixed(void);
 		explicit Fixed(Fixed const &a);

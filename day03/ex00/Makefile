@@ -12,14 +12,14 @@
 
 NAME = ex00
 CFLAGS = -Wall -Wextra -Werror
-SRC = main.cpp Fixed.class.cpp
+SRC = main.cpp FragTrap.cpp
  
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@ clang++ -o $(NAME) $(CFLAGS) $(SRC)
+	clang++ -o $(NAME) $(CFLAGS) $(SRC)
 
 # recompile when headers changed
 %.o: %.cpp *.h *.hpp
