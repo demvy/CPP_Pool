@@ -1,6 +1,6 @@
 
-#ifndef FRAGTRAP_HPP
-# define FRAGTRAP_HPP
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
 # include <iostream>
 # include <string>
@@ -9,26 +9,26 @@
 # define ATTACK_ENERGY 25
 # define REPAIR_ENERGY 15
 
-class FragTrap
+class ScavTrap
 {
 private:
 	int hp;
 	static const int max_hp = 100;
 	int energy;
-	static const int max_energy = 100;
+	static const int max_energy = 50;
 	int level;
 	std::string name;
-	static const int hand_damage = 30;
-	static const int range_damage = 20;
+	static const int hand_damage = 20;
+	static const int range_damage = 15;
 	static const int ram_damage = 10;
 	static const int sniper_damage = 55;
-	static const int arm_reduce_damage = 5;
+	static const int arm_reduce_damage = 3;
 public:
-	FragTrap();
-	FragTrap(std::string robo_name);
-	FragTrap(FragTrap const &obj);
-	~FragTrap();
-	FragTrap & operator=(FragTrap const &obj);
+	ScavTrap();
+	ScavTrap(std::string robo_name);
+	ScavTrap(ScavTrap const &obj);
+	~ScavTrap();
+	ScavTrap & operator=(ScavTrap const &obj);
 	int getHP(void) const;
 	int getEnergy(void) const;
 	int getLevel(void) const;
@@ -44,7 +44,7 @@ public:
 	void magnetAttack(std::string const &target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
-	void vaulthunter_dot_exe(std::string const &target);
+	void challengeNewcomer(void);
 	bool isDead() const;
 	bool haveEnoughEnergy(int damage) const;
 	void wasteEnergy(int amount);

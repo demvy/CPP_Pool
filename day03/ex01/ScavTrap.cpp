@@ -1,94 +1,94 @@
 
-#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
-FragTrap::FragTrap() {
+ScavTrap::ScavTrap() {
 	hp = 100;
-	energy = 100;
+	energy = 50;
 	level = 1;
 	name = "default";
-	std::cout<<"Default constructor called"<<std::endl;
+	std::cout<<"ScavTrap Default constructor called"<<std::endl;
 }
 
-FragTrap::FragTrap(std::string robo_name) : name(robo_name) {
+ScavTrap::ScavTrap(std::string robo_name) : name(robo_name) {
 	hp = 100;
-	energy = 100;
+	energy = 50;
 	level = 1;
-	std::cout<<"Constructor with param NAME for robot "<<robo_name<<std::endl;
+	std::cout<<"ScavTrap constructor with param NAME for robot "<<robo_name<<std::endl;
 }
 
-int FragTrap::getHP() const {
+int ScavTrap::getHP() const {
 	return hp;
 }
 
-int FragTrap::getEnergy() const {
+int ScavTrap::getEnergy() const {
 	return energy;
 }
 
-int FragTrap::getLevel() const {
+int ScavTrap::getLevel() const {
 	return level;
 }
 
-const std::string& FragTrap::getName() const {
+const std::string& ScavTrap::getName() const {
 	return name;
 }
 
-FragTrap::FragTrap(FragTrap const &obj) {
+ScavTrap::ScavTrap(ScavTrap const &obj) {
 	hp = obj.getHP();
 	energy = obj.getEnergy();
 	level = obj.getLevel();
 	name = obj.getName();
-	std::cout<<"Copy onstructor for robot "<<name<<std::endl;
+	std::cout<<"ScavTrap copy onstructor for robot "<<name<<std::endl;
 }
 
-FragTrap::~FragTrap() {
-	std::cout<<"Delete robot "<<name<<std::endl;
+ScavTrap::~ScavTrap() {
+	std::cout<<"Delete robot ScavTrap "<<name<<std::endl;
 }
 
-FragTrap& FragTrap::operator=(FragTrap const &obj) {
+ScavTrap& ScavTrap::operator=(ScavTrap const &obj) {
 	hp = obj.getHP();
 	energy = obj.getEnergy();
 	level = obj.getLevel();
 	name = obj.getName();
-	std::cout<<"Operator = called for robot "<<name<<std::endl;
+	std::cout<<"ScavTrap Operator = called for robot "<<name<<std::endl;
 	return (*this);
 }
 
-void FragTrap::setHP(int _hp) {
+void ScavTrap::setHP(int _hp) {
 	hp = _hp;
 }
 
-void FragTrap::setEnergy(int en) {
+void ScavTrap::setEnergy(int en) {
 	energy = en;
 }
 
-void FragTrap::setLevel(int lv) {
+void ScavTrap::setLevel(int lv) {
 	level = lv;
 }
 
-void FragTrap::setName(const std::string &_name) {
+void ScavTrap::setName(const std::string &_name) {
 	name = _name;
 }
 
-bool FragTrap::isDead() const {
+bool ScavTrap::isDead() const {
 	return (hp <= 0);
 }
 
-bool FragTrap::haveEnoughEnergy(int action_energy) const {
+bool ScavTrap::haveEnoughEnergy(int action_energy) const {
 	return (energy >= action_energy);
 }
 
-void FragTrap::takeDamage(unsigned int amount) {
+void ScavTrap::takeDamage(unsigned int amount) {
 	hp -= amount - arm_reduce_damage;
 	if (isDead())
 	{
-		std::cout<<name<<" destroyed!"<<std::endl;
+		std::cout<<name<<" destroyed ScavTrap!"<<std::endl;
 		hp = 0;
 	}
 	else
 		std::cout<<name<<" hp = "<<hp<<std::endl;
 }
 
-void FragTrap::wasteEnergy(int amount) {
+void ScavTrap::wasteEnergy(int amount) {
 	if (!isDead())
 	{
 		energy -= amount;
@@ -102,10 +102,10 @@ void FragTrap::wasteEnergy(int amount) {
 	}
 }
 
-void FragTrap::rangedAttack(std::string const &target) {
+void ScavTrap::rangedAttack(std::string const &target) {
 	if (!isDead() && haveEnoughEnergy(ATTACK_ENERGY))
 	{
-		std::cout<<"FR4G-TP "<<name<<" attacks "<<target<<" at range, causing "
+		std::cout<<"ScavTrap FR4G-TP "<<name<<" attacks "<<target<<" at range, causing "
 		         <<range_damage-arm_reduce_damage<<" points of damage !"<<std::endl;
 		level++;
 		takeDamage(range_damage);
@@ -115,10 +115,10 @@ void FragTrap::rangedAttack(std::string const &target) {
 		std::cout<<"Not enough energy to make ranged attack!"<<std::endl;
 }
 
-void FragTrap::maleeAttack(std::string const &target) {
+void ScavTrap::maleeAttack(std::string const &target) {
 	if (!isDead() && haveEnoughEnergy(ATTACK_ENERGY))
 	{
-		std::cout<<"FR4G-TP "<<name<<" attacks "<<target<<" with malee, causing "
+		std::cout<<"ScavTrap FR4G-TP "<<name<<" attacks "<<target<<" with malee, causing "
 		         <<hand_damage-arm_reduce_damage<<" points of damage !"<<std::endl;
 		level++;
 		takeDamage(hand_damage);
@@ -128,24 +128,24 @@ void FragTrap::maleeAttack(std::string const &target) {
 		std::cout<<"Not enough energy to make malee attack!"<<std::endl;
 }
 
-void FragTrap::beRepaired(unsigned int amount) {
+void ScavTrap::beRepaired(unsigned int amount) {
 	if (!isDead() && haveEnoughEnergy(REPAIR_ENERGY))
 	{
 		wasteEnergy(REPAIR_ENERGY);
 		hp += amount;
 		if (hp > max_hp)
 			hp = 100;
-		std::cout<<"Repairing "<<name<<" on amount "<<amount<<std::endl;
+		std::cout<<"Repairing ScavTrap "<<name<<" on amount "<<amount<<std::endl;
 		std::cout<<"New hp of "<<name<<" = "<<hp<<std::endl;
 	}
 	else
 		std::cout<<"Not enough energy to be repaired!"<<std::endl;
 }
 
-void FragTrap::ramAttack(std::string const &target) {
+void ScavTrap::ramAttack(std::string const &target) {
 	if (!isDead() && haveEnoughEnergy(ATTACK_ENERGY))
 	{
-		std::cout<<"FR4G-TP "<<name<<" attacks "<<target<<" with ram, causing "
+		std::cout<<"ScavTrap FR4G-TP "<<name<<" attacks "<<target<<" with ram, causing "
 		         <<ram_damage-arm_reduce_damage<<" points of damage !"<<std::endl;
 		level++;
 		takeDamage(ram_damage);
@@ -155,10 +155,10 @@ void FragTrap::ramAttack(std::string const &target) {
 		std::cout<<"Not enough energy to make ram attack!"<<std::endl;
 }
 
-void FragTrap::sniperAttack(std::string const &target) {
+void ScavTrap::sniperAttack(std::string const &target) {
 	if (!isDead() && haveEnoughEnergy(ATTACK_ENERGY))
 	{
-		std::cout<<"FR4G-TP "<<name<<" attacks "<<target<<" with sniper, causing "
+		std::cout<<"ScavTrap FR4G-TP "<<name<<" attacks "<<target<<" with sniper, causing "
 		         <<sniper_damage-arm_reduce_damage<<" points of damage !"<<std::endl;
 		level++;
 		takeDamage(sniper_damage);
@@ -168,10 +168,10 @@ void FragTrap::sniperAttack(std::string const &target) {
 		std::cout<<"Not enough energy to make malee attack!"<<std::endl;
 }
 
-void FragTrap::magnetAttack(std::string const &target) {
+void ScavTrap::magnetAttack(std::string const &target) {
 	if (!isDead() && haveEnoughEnergy(ATTACK_ENERGY))
 	{
-		std::cout<<"FR4G-TP "<<name<<" attacks "<<target<<" with magnet, causing "
+		std::cout<<"ScavTrap FR4G-TP "<<name<<" attacks "<<target<<" with magnet, causing "
 		         <<hand_damage-arm_reduce_damage<<" points of damage !"<<std::endl;
 		level++;
 		takeDamage(hand_damage);
@@ -181,21 +181,21 @@ void FragTrap::magnetAttack(std::string const &target) {
 		std::cout<<"Not enough energy to make magnet attack!"<<std::endl;
 }
 
-void FragTrap::vaulthunter_dot_exe(std::string const &target) {
-	void (FragTrap::*attacks[])(std::string const &target) = {&FragTrap::rangedAttack, &FragTrap::maleeAttack,
-	                                                          &FragTrap::ramAttack, &FragTrap::sniperAttack, &FragTrap::magnetAttack};
+void ScavTrap::challengeNewcomer() {
+	std::string challenges[] = {"Talk like R2D2", "Dance tektonic", "Say bullshit 5 minutes without stop",
+								"Push all tasks in day", "Write 200 unnecessary rows of code"};
 	int index = rand() % 5;
 	for(int i = 0; i < 5; i++)
 	{
 		if (i == index)
 		{
-			(this->*attacks[i])(target);
+			std::cout<<"Choosen challenge = "<<challenges[i]<<std::endl;
 			break;
 		}
 	}
 }
 
-void FragTrap::printPrivate() {
+void ScavTrap::printPrivate() {
 	std::cout<<std::endl<<"{ name="<<name<<std::endl;
 	std::cout<<" HP = "<<hp<<std::endl;
 	std::cout<<" ENERGY = "<<energy<<std::endl;
