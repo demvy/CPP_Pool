@@ -1,7 +1,7 @@
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap() {
+ScavTrap::ScavTrap() : ClapTrap(){
 	hp = 100;
 	energy = 50;
 	level = 1;
@@ -9,30 +9,14 @@ ScavTrap::ScavTrap() {
 	std::cout<<"ScavTrap Default constructor called"<<std::endl;
 }
 
-ScavTrap::ScavTrap(std::string robo_name) : name(robo_name) {
+ScavTrap::ScavTrap(std::string robo_name) : ClapTrap(robo_name) {
 	hp = 100;
 	energy = 50;
 	level = 1;
 	std::cout<<"ScavTrap constructor with param NAME for robot "<<robo_name<<std::endl;
 }
 
-int ScavTrap::getHP() const {
-	return hp;
-}
-
-int ScavTrap::getEnergy() const {
-	return energy;
-}
-
-int ScavTrap::getLevel() const {
-	return level;
-}
-
-const std::string& ScavTrap::getName() const {
-	return name;
-}
-
-ScavTrap::ScavTrap(ScavTrap const &obj) {
+ScavTrap::ScavTrap(ScavTrap const &obj) : ClapTrap(obj){
 	hp = obj.getHP();
 	energy = obj.getEnergy();
 	level = obj.getLevel();
@@ -51,22 +35,6 @@ ScavTrap& ScavTrap::operator=(ScavTrap const &obj) {
 	name = obj.getName();
 	std::cout<<"ScavTrap Operator = called for robot "<<name<<std::endl;
 	return (*this);
-}
-
-void ScavTrap::setHP(int _hp) {
-	hp = _hp;
-}
-
-void ScavTrap::setEnergy(int en) {
-	energy = en;
-}
-
-void ScavTrap::setLevel(int lv) {
-	level = lv;
-}
-
-void ScavTrap::setName(const std::string &_name) {
-	name = _name;
 }
 
 bool ScavTrap::isDead() const {
@@ -193,11 +161,4 @@ void ScavTrap::challengeNewcomer() {
 			break;
 		}
 	}
-}
-
-void ScavTrap::printPrivate() {
-	std::cout<<std::endl<<"{ name="<<name<<std::endl;
-	std::cout<<" HP = "<<hp<<std::endl;
-	std::cout<<" ENERGY = "<<energy<<std::endl;
-	std::cout<<" LVL = "<<level<<" }"<<std::endl<<std::endl;
 }

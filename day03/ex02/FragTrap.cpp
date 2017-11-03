@@ -1,7 +1,7 @@
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap() {
+FragTrap::FragTrap() : ClapTrap() {
 	hp = 100;
 	energy = 100;
 	level = 1;
@@ -9,30 +9,14 @@ FragTrap::FragTrap() {
 	std::cout<<"Default constructor called"<<std::endl;
 }
 
-FragTrap::FragTrap(std::string robo_name) : name(robo_name) {
+FragTrap::FragTrap(std::string robo_name) : ClapTrap(robo_name) {
 	hp = 100;
 	energy = 100;
 	level = 1;
 	std::cout<<"Constructor with param NAME for robot "<<robo_name<<std::endl;
 }
 
-int FragTrap::getHP() const {
-	return hp;
-}
-
-int FragTrap::getEnergy() const {
-	return energy;
-}
-
-int FragTrap::getLevel() const {
-	return level;
-}
-
-const std::string& FragTrap::getName() const {
-	return name;
-}
-
-FragTrap::FragTrap(FragTrap const &obj) {
+FragTrap::FragTrap(FragTrap const &obj) : ClapTrap(obj) {
 	hp = obj.getHP();
 	energy = obj.getEnergy();
 	level = obj.getLevel();
@@ -51,22 +35,6 @@ FragTrap& FragTrap::operator=(FragTrap const &obj) {
 	name = obj.getName();
 	std::cout<<"Operator = called for robot "<<name<<std::endl;
 	return (*this);
-}
-
-void FragTrap::setHP(int _hp) {
-	hp = _hp;
-}
-
-void FragTrap::setEnergy(int en) {
-	energy = en;
-}
-
-void FragTrap::setLevel(int lv) {
-	level = lv;
-}
-
-void FragTrap::setName(const std::string &_name) {
-	name = _name;
 }
 
 bool FragTrap::isDead() const {
@@ -193,11 +161,4 @@ void FragTrap::vaulthunter_dot_exe(std::string const &target) {
 			break;
 		}
 	}
-}
-
-void FragTrap::printPrivate() {
-	std::cout<<std::endl<<"{ name="<<name<<std::endl;
-	std::cout<<" HP = "<<hp<<std::endl;
-	std::cout<<" ENERGY = "<<energy<<std::endl;
-	std::cout<<" LVL = "<<level<<" }"<<std::endl<<std::endl;
 }

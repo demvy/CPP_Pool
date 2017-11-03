@@ -6,18 +6,14 @@
 # include <string>
 # include <ctime>
 # include "stdlib.h"
+# include "ClapTrap.hpp"
 # define ATTACK_ENERGY 25
 # define REPAIR_ENERGY 15
 
-class ScavTrap
+class ScavTrap : virtual public ClapTrap
 {
 private:
-	int hp;
-	static const int max_hp = 100;
-	int energy;
 	static const int max_energy = 50;
-	int level;
-	std::string name;
 	static const int hand_damage = 20;
 	static const int range_damage = 15;
 	static const int ram_damage = 10;
@@ -29,26 +25,27 @@ public:
 	ScavTrap(ScavTrap const &obj);
 	~ScavTrap();
 	ScavTrap & operator=(ScavTrap const &obj);
-	int getHP(void) const;
-	int getEnergy(void) const;
-	int getLevel(void) const;
-	const std::string &getName(void) const;
-	void setHP(int _hp);
-	void setEnergy(int en);
-	void setLevel(int lv);
-	void setName(const std::string &_name);
-	void rangedAttack(std::string const &target);
-	void maleeAttack(std::string const & target);
-	void ramAttack(std::string const &target);
-	void sniperAttack(std::string const &target);
-	void magnetAttack(std::string const &target);
-	void takeDamage(unsigned int amount);
-	void beRepaired(unsigned int amount);
-	void challengeNewcomer(void);
-	bool isDead() const;
-	bool haveEnoughEnergy(int damage) const;
-	void wasteEnergy(int amount);
-	void printPrivate(void);
+    using ClapTrap::rangedAttack;
+    void rangedAttack(std::string const &target);
+    using ClapTrap::maleeAttack;
+    void maleeAttack(std::string const & target);
+    using ClapTrap::ramAttack;
+    void ramAttack(std::string const &target);
+    using ClapTrap::sniperAttack;
+    void sniperAttack(std::string const &target);
+    using ClapTrap::magnetAttack;
+    void magnetAttack(std::string const &target);
+    using ClapTrap::takeDamage;
+    void takeDamage(unsigned int amount);
+    using ClapTrap::beRepaired;
+    void beRepaired(unsigned int amount);
+    using ClapTrap::isDead;
+    bool isDead() const;
+    using ClapTrap::haveEnoughEnergy;
+    bool haveEnoughEnergy(int damage) const;
+    using ClapTrap::wasteEnergy;
+    void wasteEnergy(int amount);
+	void challengeNewcomer();
 };
 
 #endif
