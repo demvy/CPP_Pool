@@ -1,11 +1,14 @@
 
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
+#include "ClapTrap.hpp"
 
 int main(void)
 {
 	std::cout<<"Start program"<<std::endl;
 
+	ClapTrap *x = new ClapTrap("wwffwfw");
+	x->printPrivate();
 	srand(time(0));
 	FragTrap *a = new FragTrap();
 	FragTrap *b = new FragTrap("Ted");

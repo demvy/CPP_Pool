@@ -7,8 +7,6 @@
 # include <ctime>
 # include "stdlib.h"
 # include "ClapTrap.hpp"
-# define ATTACK_ENERGY 25
-# define REPAIR_ENERGY 15
 
 class FragTrap : virtual public ClapTrap
 {

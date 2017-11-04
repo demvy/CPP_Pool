@@ -12,7 +12,7 @@
 
 NAME = ex01
 CFLAGS = -Wall -Wextra -Werror
-SRC = main.cpp FragTrap.cpp ScavTrap.cpp
+SRC = main.cpp FragTrap.cpp ScavTrap.cpp ClapTrap.cpp
  
 OBJ = $(SRC:.cpp=.o)
 

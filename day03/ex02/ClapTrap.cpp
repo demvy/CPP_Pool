@@ -1,5 +1,5 @@
 
-#include "ClapTrap.cpp"
+#include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap() {
     hp = 100;

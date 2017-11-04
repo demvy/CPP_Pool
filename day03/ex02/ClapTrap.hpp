@@ -2,8 +2,10 @@
 #ifndef CLAPTRAP_HPP
 # define CLAPTRAP_HPP
 
-#include <iostream>
-#include <string>
+# include <iostream>
+# include <string>
+# define ATTACK_ENERGY 25
+# define REPAIR_ENERGY 15
 
 class ClapTrap {
     protected:
