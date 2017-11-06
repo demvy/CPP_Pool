@@ -47,9 +47,9 @@ void Bullet::move()
 
         pos[0] += 1;
         mvaddch(pos[1], pos[0], c);
-        //refresh();
+        refresh();
     }
-    //mvaddch(pos[1], pos[0], c);
+    mvaddch(pos[1], pos[0], c);
     //refresh();
     free = true;
 }

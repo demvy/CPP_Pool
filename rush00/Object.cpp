@@ -33,7 +33,7 @@ void Object::setChar(char _c) {
 
 
 int* Object::getPos() const {
-    return pos;
+    return ((int*)pos);
 }
 
 int Object::getHP() const {

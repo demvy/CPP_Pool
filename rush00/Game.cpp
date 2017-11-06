@@ -36,7 +36,7 @@ void Game::start() {
     player.setPos(3, sizey/2);
     player.setChar('>');
     bull = new Bullet[sizex];
-    enemies = new Enemy[100];
+    //enemies = new Enemy[100];
     bool exit_requested = false;
     int in_char;
     Bullet bul;
@@ -49,7 +49,7 @@ void Game::start() {
         player.move(in_char);
         if (in_char == ' ')
             player.shoot(bul);
-        usleep(10000);
+        usleep(100000);
         //mvaddch(player.getPos()[0], player.getPos()[1], player.getChar());
         refresh();
     }

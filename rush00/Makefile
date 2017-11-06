@@ -12,7 +12,7 @@
 
 NAME = ft_retro
 CFLAGS = -Wall -Wextra
-SRC = main.cpp Game.cpp Bullet.cpp Object.cpp Player.cpp
+SRC = main.cpp Game.cpp Bullet.cpp Object.cpp Player.cpp Enemy.cpp
  
 OBJ = $(SRC:.cpp=.o)
 
