@@ -14,7 +14,7 @@ PresidentialPardonForm::~PresidentialPardonForm() {
 }
 
 PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &obj) : Form(obj) {
-    
+
 }
 
 bool PresidentialPardonForm::execute(Bureaucrat const &executor) const {
