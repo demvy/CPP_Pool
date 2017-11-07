@@ -5,6 +5,7 @@
 #include <iostream>
 #include <string>
 #include "Form.hpp"
+#include <fstream>
 
 class ShrubberyCreationForm : public Form {
 private:
@@ -15,7 +16,8 @@ public:
     ShrubberyCreationForm(std::string _target);
     ShrubberyCreationForm(ShrubberyCreationForm const &obj);
     ~ShrubberyCreationForm();
-    void execute(Bureaucrat const & executor) const ;
+    bool execute(Bureaucrat const & executor) const ;
+    std::string getFileContents (std::ifstream& File) const;
 };
 
 #endif

@@ -38,8 +38,8 @@ Form::Form(std::string _name, bool sign, int _grS, int _grE) : name(_name), isSi
 Form& Form::operator=(Form const &obj) {
     const_cast<std::string&>((this)->name) = obj.getName();
     isSigned = obj.ifSigned();
-    const_cast<int&>(gradeToSign) = obj.getName();
-    const_cast<int&>(gradeToExecute) = obj.getName();
+    const_cast<int&>(gradeToSign) = obj.getGradeToSign();
+    const_cast<int&>(gradeToExecute) = obj.getGradeToExecute();
     return (*this);
 }
 
@@ -72,11 +72,14 @@ const char *Form::GradeTooLowException::what() const throw() {
     return ("Form Grade is too low");
 }
 
-void Form::setGradeToSign(int newGradeToSign) {
-    const_cast<int>(gradeToSign) = newGradeToSign;
+const char* Form::IsNotSigned::what() const throw() {
+    return ("Form is not signed");
 }
 
-void Form::execute(Bureaucrat const &executor) const {
-    if (isSigned && executor.getGrade() <= gradeToExecute)
+void Form::setGradeToSign(const int &newGradeToSign) {
+    const_cast<int&>(gradeToSign) = newGradeToSign;
+}
 
+void Form::setGradeToExecute(const int &newGradeToExecutes) {
+    const_cast<int&>(gradeToExecute) = newGradeToExecutes;
 }

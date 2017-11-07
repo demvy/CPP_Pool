@@ -49,7 +49,7 @@ int main(){
         try
         {
             Bureaucrat but("Bur", 13);
-            std::cout<<but;
+            std::cout<<but<<std::endl;
             Form f("dddddd", false, 40, 59);
             but.signForm(f);
         }
@@ -62,7 +62,7 @@ int main(){
         try
         {
             Bureaucrat but("Bur", 13);
-            std::cout<<but;
+            std::cout<<but<<std::endl;
             Form f("dddddd", false, 1, 1);
             but.signForm(f);
         }

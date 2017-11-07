@@ -51,7 +51,7 @@ bool Form::beSigned(Bureaucrat &bur) {
         return true;
     }
     else
-        throw GradeTooHighException();
+        throw GradeTooLowException();
 
 }
 
