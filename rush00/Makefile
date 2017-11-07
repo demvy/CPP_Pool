@@ -1,34 +1,24 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: vdemeshk <marvin@42.fr>                    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2017/10/31 13:02:49 by vdemeshk          #+#    #+#              #
-#    Updated: 2017/10/31 13:02:58 by vdemeshk         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
 
+CC = clang++
+FLAG = -Wall -Werror -Wextra -lncurses
 NAME = ft_retro
-CFLAGS = -Wall -Wextra
-SRC = main.cpp Game.cpp Bullet.cpp Object.cpp Player.cpp Enemy.cpp
- 
-OBJ = $(SRC:.cpp=.o)
+SRCS = $(shell ls *.cpp)
+OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	clang++ -o $(NAME) $(CFLAGS) $(SRC) -lncurses
+$(NAME): $(OBJS)
+	$(CC) $(FLAG) $(OBJS) -o $@
 
-# recompile when headers changed
-%.o: %.cpp %.hpp
-	clang++ $(CFLAGS) -o $@ -c $<
+%.o: %.c
+	$(CC) $(FLAG) $(SRCS) -c -o $@
 
 clean:
-	@ rm -rf $(OBJ)
+	rm -f *.o
 
 fclean: clean
-	@ rm -rf $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
+
+.PHONY: all clean fclean re

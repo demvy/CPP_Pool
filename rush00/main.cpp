@@ -1,35 +1,21 @@
 
-#include <ncurses.h>
-#include <string>
-#include <unistd.h>
-#include "Game.hpp"
-#include "Player.hpp"
 #include <ctime>
+#include "Game.class.hpp"
 
-WINDOW *init_window(void) {
-    WINDOW* wnd;
-    wnd = initscr();
-    cbreak();
-    noecho();
-    keypad(wnd, true);
-    curs_set(0);
-    return (wnd);
-}
+int main(void) {
+  struct timespec timeOut, remains;
+  timeOut.tv_sec = 0;
+  timeOut.tv_nsec = 10000000;
 
-int main(void)
-{
-    //WINDOW *wnd = init_window();
+  Game game = Game();
+  game.init();
 
-    /*int x;
-    int y;
-    getmaxyx(wnd, y, x);
-    Player player;
-    player.setPosition(x, y);
-    player.run(wnd);
-    wrefresh(wnd);*/
-    srand(time(0));
-    Game first;
-    first.start();
-    endwin();
-    return (0);
+  while (game.isRunning) {
+    game.inputLogic();
+    game.moveEntities();
+    game.display();
+    nanosleep(&timeOut, &remains);
+  }
+
+  return (0);
 }

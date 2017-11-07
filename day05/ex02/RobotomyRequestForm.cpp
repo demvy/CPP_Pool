@@ -19,7 +19,13 @@ RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &obj) : Form(
 
 bool RobotomyRequestForm::execute(Bureaucrat const &executor) const {
     if (this->ifSigned() && (executor.getGrade() <= this->getGradeToExecute())) {
-        std::cout<<"dz"<<std::endl;
+        std::cout<<"drrrrrrrrr"<<std::endl;
+        int res = rand() % 2;
+        if (res) {
+            std::cout<<target<<" has been robotomized successfully"<<std::endl;
+        }
+        else
+            std::cout<<target<<" fail to robotomize"<<std::endl;
         return true;
     }
     else if (!this->ifSigned())
