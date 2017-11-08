@@ -10,9 +10,9 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ex01
+NAME = ./convert
 CFLAGS = -Wall -Wextra -Werror
-SRC = ex01.cpp
+SRC = main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
@@ -22,13 +22,13 @@ $(NAME): $(OBJ)
 	@ clang++ -o $(NAME) $(CFLAGS) $(SRC)
 
 # recompile when headers changed
-%.o: %.cpp *.h *.hpp
+%.o: %.cpp
 	clang++ $(CFLAGS) -o $@ -c $<
 
 clean:
-	@ rm -rf $(OBJ)
+	@ rm $(OBJ)
 
 fclean: clean
-	@ rm -rf $(NAME)
+	@ rm $(NAME)
 
 re: fclean all
